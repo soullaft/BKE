@@ -1,0 +1,15 @@
+.login-window{
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 15%;
+}
+.form-check-label {
+    font-size: 1.1em;
+}
+h2{
+    text-align: center;
+}
+.btn{
+    float: right;
+    margin-top: 20px;
+}

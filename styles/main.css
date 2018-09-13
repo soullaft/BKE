@@ -1,0 +1,224 @@
+.wrapper
+{
+    max-width: 1400px;
+    margin: 0 auto;
+}
+#wrap
+{
+    display: none;
+    opacity: 0.8;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 16px;
+    background-color: rgba(1, 1, 1, 0.725);
+    z-index: 100;
+    overflow: auto;
+}
+.btn-primary
+{
+    margin-left: 10px;
+    margin-right: 12px;
+}
+.searchText
+{
+    height: 38px;
+    margin-right: 10px;
+}
+.search
+{
+    float: right;
+    display: block;
+}
+.clearfix::after 
+{
+    content: "";
+    clear: both;
+    display: table;
+}
+.headmenu
+{
+    width: 100%;
+    position: relative;
+    margin: 1%;
+}
+#window
+{
+    width: 400px;
+    height: 850px;
+    margin: 50px auto;
+    display: none;
+    background: #fff;
+    z-index: 200;
+    position: fixed;
+    border-radius: 15px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 16px;
+}
+#deletewrap
+{
+    display: none;
+    opacity: 0.8;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 16px;
+    background-color: rgba(1, 1, 1, 0.725);
+    z-index: 100;
+    overflow: auto;
+}
+#addwindow
+{
+    width: 400px;
+    height: 930px;
+    margin: 50px auto;
+    display: none;
+    background: #fff;
+    z-index: 200;
+    position: fixed;
+    border-radius: 15px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 16px;
+}
+#deleteWindow
+{
+    width: 400px;
+    height: 250px;
+    margin: 50px auto;
+    display: none;
+    background: #fff;
+    z-index: 200;
+    position: fixed;
+    border-radius: 15px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 16px;
+}
+#addwrap
+{
+    display: none;
+    opacity: 0.8;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 16px;
+    background-color: rgba(1, 1, 1, 0.725);
+    z-index: 100;
+    overflow: auto;
+}
+.close
+{
+    width: 30px;
+    height: 30px;
+    margin-left: 364px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+.maintable
+{
+    margin: 0 auto;
+    max-width: 1550px;
+}
+.sort 
+{
+    background: #f5ffff;
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+    border-radius: 15px;
+  }
+  .sort th 
+  {
+    border-top: 1px solid #3294fc;	
+    border-bottom: 1px solid #3294fc;
+    box-shadow: inset 0 1px 0 #3294fc, inset 0 -1px 0 #3294fc;
+    background: linear-gradient(#3294fc, #3294fc);
+    color: white;
+    padding: 10px 15px;
+    position: relative;
+  }
+  .sort th:after 
+  {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 25%;
+    height: 25%;
+    width: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255,255,255,.08));
+  }
+  .sort tr:nth-child(odd) 
+  {
+    background: #ebf3f9;
+  }
+  .sort th:first-child 
+  {
+    border-left: 1px solid #3294fc;	
+    border-bottom:  1px solid #3294fc;
+    box-shadow: inset 1px 1px 0 #3294fc, inset 0 -1px 0 #3294fc;
+  }
+  .sort th:last-child 
+  {
+    border-right: 1px solid #3294fc;
+    border-bottom:  1px solid #3294fc;
+    box-shadow: inset -1px 1px 0 #3294fc, inset 0 -1px 0 #3294fc;
+  }
+  .sort td 
+  {
+    border: 1px solid #e3eef7;
+    padding: 10px 15px;
+    position: relative;
+    transition: all 0.5s ease;
+  }
+  .sort tbody:hover td 
+  {
+    color: transparent;
+    text-shadow: 0 0 3px #7f8ca0;
+  }
+  .sort tbody:hover tr:hover td 
+  {
+    color: #444444;
+    text-shadow: none;
+  }
+  .adduser
+  {
+    display: block;
+    text-align: center;
+    line-height: 150%;
+    font-size: 1.2em;
+  }
+ .userimage
+ {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+  }
+
+  thead tr:hover
+  {
+      cursor: hand;
+  }
+  .exit
+  {
+      display: inline-block;
+  }
+  #exit{
+      margin-right: 50px;
+}

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../bootstrap-4.1.0/dist/css/bootstrap.min.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../scripts/jquery-3.3.1.js"></script>
+    <script src="../scripts/jquery.tablesorter.js"></script>
+    <title>Главная страница</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Задний прозрачный фон-->
+        <div onclick="showadd('none')" id="addwrap"></div>
+        <div onclick="show('none')" id="wrap"></div>
+        <div onclick="showdelete('none')" id="deletewrap"></div>
+        <div class="headmenu">
+            <form class="exit" method="POST">
+                <button type="submit" class="btn btn-dark" id="exit" name="exitButton">Выйти</button>
+            </form>
+            <button type="button" class="btn btn-success" id="add" onclick="show('block')">Добавить сотрудника</button>
+            <button type="button" class="btn btn-secondary" id="edit" onclick="showadd('block')">Изменить сотрудника</button>
+            <button type="button" class="btn btn-danger" id="delete" onclick="showdelete('block')">Удалить сотрудника</button>
+            <button type="button" class="btn btn-info" id="printButton">Печать</button>
+
+            <!-- Поиск -->
+            <div class="search">
+                <form method="POST" class="form-inline">
+                    <div class="form-group">
+                        <label for="inputUserName" class="searchText">Поиск:</label>
+                        <input id="seachtext" name="search" class="form-control" placeholder="Введите фамилию" type="text" required>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="window">
+
+        <!-- Картинка крестика-->
+        <img class="close" onclick="show('none')" src="../images/Close Window_52px.png">
+
+
+        <!-- Форма добавления нового пользователя-->
+        <form method="POST">
+            <label class="adduser">Добавление нового сотрудника</label>
+            <img src="../images/User_100px.png" class="userimage" />
+            <div class="form-group">
+                <label for="inputUserName">Фамилия</label>
+                <input name="surname" class="form-control" type="text" id="surname" required>
+            </div>
+            <div class="form-group">
+                <label for="inputUserName">Имя</label>
+                <input name="name" class="form-control" type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="inputUserName">Отчество</label>
+                <input name="middlename" class="form-control" type="text" id="middlename" required>
+            </div>
+            <div class="form-group">
+                <label for="inputUserName">Корпус и кабинет</label>
+                <input name="room" class="form-control" type="text" id="room" required>
+            </div>
+
+            <div class="form-group">
+                <label for="inputUserName">Имя техники</label>
+                <input name="techname" class="form-control" type="text" id="techName" required>
+            </div>
+            <div class="form-group">
+                <label for="inputUserName">Основная информация о технике</label>
+                <input name="techdesc" class="form-control" type="text" id="infoTech" required>
+            </div>
+            <div class="form-group">
+                <label for="inputUserName">Дата обслуживания</label>
+                <input name="datepick" class="form-control" type="date" id="datepick" required>
+            </div>
+            <button type="submit" class="btn btn-success" id="addbutton" style="float: right;" name="adduserbtn">Добавить</button>
+        </form>
+    </div>
+    <!--Изменение информации о пользователе-->
+    <div id="addwindow">
+        <img class="close" onclick="showadd('none')" src="../images/Close Window_52px.png">
+        <form method="POST">
+            <label class="adduser">Изменение информации о сотруднике</label>
+            <img src="../images/Edit_100px.png" class="userimage" />
+            <div class="form-group">
+                <label>Выберите идентификатор пользователя</label>
+                <select name="users" id="userID" class="form-control">
+                    <option></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="inputUserName">Фамилия</label>
+                <input name="newSurname" class="form-control" type="text" id="newSurname" required>
+            </div>
+            <div class="form-group">
+                <label for="inputUserName">Имя</label>
+                <input name="newName" class="form-control" type="text" id="newName" required>
+            </div>
+            <div class="form-group">
+                <label for="inputUserName">Отчество</label>
+                <input name="newMiddlename" class="form-control" type="text" id="newMiddlename" required>
+            </div>
+            <div class="form-group">
+                <label for="inputUserName">Корпус и кабинет</label>
+                <input name="newRoom" class="form-control" type="text" id="newRoom" required>
+            </div>
+
+            <div class="form-group">
+                <label for="inputUserName">Имя техники</label>
+                <input name="newTechName" class="form-control" type="text" id="newTechName" required>
+            </div>
+            <div class="form-group">
+                <label for="inputUserName">Информация о технике</label>
+                <input name="newInfoTech" class="form-control" type="text" id="newInfoTech" required>
+            </div>
+            <div class="form-group">
+                <label for="inputUserName">Дата обслуживания</label>
+                <input name="newDatepick" class="form-control" type="date" id="newDatepick" required>
+            </div>
+            <button type="submit" name="editButton" class="btn btn-success" style="float: right;">Сохранить</button>
+        </form>
+
+    </div>
+    <div id="deleteWindow">
+        <img class="close" onclick="showdelete('none')" src="../images/Close Window_52px.png">
+        <form method="POST">
+            <label class="adduser">Удаление сотрудника</label>
+            <div class="form-group">
+                <label>Выберите идентификатор сотрудника</label>
+                <select name="delUser" id="delUserID" class="form-control"></select>
+            </div>
+            <button type="submit" class="btn btn-danger" id="deletebutton" style="float: right;">Удалить</button>
+        </form>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+
+            //Массив пользователй
+            var items = [];
+
+            //Получаем ссылку на таблицу
+            var T = document.getElementById('tbl');
+
+            var currentUser = 0; var mass = [];
+
+            for (var i = 1; i < T.rows.length; i++) {
+                mass = [];
+                for (var j = 0; j < T.rows[i].cells.length; j++) {
+                    mass.push(T.rows[i].cells.item(j).innerHTML);
+                }
+                items[currentUser] = mass;
+                currentUser++;
+            }
+
+            items.forEach(element => {
+                $('#userID').append($('<option>', {
+                    value: element[0],
+                    text: element[0]
+                }));
+            });
+
+
+            $("#tbl").tablesorter();
+
+            $('#printButton').on('click', function () {
+                var divToPrint = document.getElementById("tbl");
+                newWin = window.open("");
+                newWin.document.write(divToPrint.outerHTML);
+                newWin.print();
+                newWin.close();
+            })
+
+            $("printButton")
+
+            $('#userID').on('change', function () {
+                items.forEach(x => {
+                    if (x[0] == this.value) {
+                        $("#newSurname").val(x[1]);
+                        $("#newName").val(x[2]);
+                        $("#newMiddlename").val(x[3]);
+                        $("#newRoom").val(x[4]);
+                        $("#newTechName").val(x[5]);
+                        $("#newInfoTech").val(x[6]);
+                        $("#newDatepick").val(x[7]);
+                    }
+                })
+            })
+
+            items.forEach(element => {
+                $('#delUserID').append($('<option>', {
+                    value: element[0],
+                    text: element[0]
+                }));
+            });
+        });
+
+        //Функция показа окна добавления пользователя
+        function show(state) {
+
+            document.getElementById('window').style.display = state;
+            document.getElementById('wrap').style.display = state;
+        }
+
+        //Функция показа окна редактирования пользователя
+        function showadd(state) {
+            document.getElementById('addwindow').style.display = state;
+            document.getElementById('addwrap').style.display = state;
+        }
+        function showdelete(state) {
+            document.getElementById('deleteWindow').style.display = state;
+            document.getElementById('deletewrap').style.display = state;
+        }
+
+        //Удаление пользователя
+        function deleteUser() {
+            var iduser = prompt("Введите идентификатор пользователя, которого вы хотите удалить:");
+            if (iduser == null || iduser == "") {
+                txt = "Идентификатор не может быть пустым";
+            } else {
+                alert("Пользователь был удален");
+            }
+        }
+
+        window.onload = function () {
+
+            document.getElementById("seachtext").onkeyup = function () { Search(); };
+
+            function Search() {
+
+                var input, filter, table, tr, td, i;
+
+                input = document.getElementById("seachtext");
+                filter = input.value.toUpperCase();
+                table = document.getElementById('tbl');
+                tr = table.getElementsByTagName("tr");
+
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[1];
+
+                    if (td) {
+                        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
